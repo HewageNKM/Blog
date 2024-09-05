@@ -10,7 +10,7 @@ const Index = () => {
     }
     return (
         <SafeAreaView>
-            <ScrollView className="bg-amber-50">
+            <ScrollView>
                 <View className="flex justify-evenly items-center w-full h-screen">
                     <View className="flex items-center gap-3">
                         <Text className="font-bold text-7xl">
