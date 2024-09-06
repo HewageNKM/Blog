@@ -24,7 +24,7 @@ const Index = () => {
                         </Text>
                     </View>
                     <View className="mt-10">
-                        <Button onClick={onClick} title="Let's Start" containerStyles="w-[90vw] bg-blue-500"/>
+                        <Button onPress={onClick} title="Let's Start" containerStyles="w-[90vw] bg-blue-500"/>
                     </View>
                 </View>
             </ScrollView>

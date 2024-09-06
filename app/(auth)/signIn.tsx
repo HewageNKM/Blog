@@ -4,7 +4,7 @@ import {StatusBar} from "expo-status-bar";
 import FormField from "@/components/FormField";
 import Button from "@/components/Button";
 import {AntDesign} from "@expo/vector-icons";
-import {Link} from "expo-router";
+import {Link, router} from "expo-router";
 
 const SignIn = () => {
     return (
@@ -42,7 +42,7 @@ const SignIn = () => {
                                 </View>
                             </View>
                             <View className="mt-10">
-                                <Button title="Continue" containerStyles="bg-blue-500"/>
+                                <Button title="Continue"  containerStyles="bg-blue-500" onPress={()=> router.replace("/(home)/home")}/>
                             </View>
                             <View className="flex flex-col mt-3 w-full justify-center items-center">
                                 <View>
@@ -56,7 +56,7 @@ const SignIn = () => {
                                     </Text>
                                 </View>
                                 <View className="flex  flex-row pt-1 gap-8">
-                                    <TouchableOpacity className="flex flex-row items-center gap-1">
+                                    <TouchableOpacity  className="flex flex-row items-center gap-1">
                                         <AntDesign name="facebook-square" size={30} color="black"/>
                                         <Text className="font-medium text-sm">Facebook</Text>
                                     </TouchableOpacity>
