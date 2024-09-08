@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {SafeAreaView, ScrollView, View, Text, TouchableOpacity, Alert} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import {AntDesign} from "@expo/vector-icons";
 import {router} from "expo-router";
+import {useGlobalContext} from "@/hooks/GlobalProvider";
 
 const Home = () => {
-    const [user, setUser] = React.useState({name:"Exmple",email:"example@gmail.com"});
 
     const logout = () => {
         Alert.alert("Logout","Are you sure you want to logout?",[
@@ -21,6 +21,7 @@ const Home = () => {
             }
         ]);
     }
+    const {user} = useGlobalContext();
     return (
         <SafeAreaView>
             <ScrollView>

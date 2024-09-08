@@ -1,12 +1,33 @@
-import React from 'react';
-import {SafeAreaView, ScrollView, Text, TouchableOpacity, View} from "react-native";
+import React, {useState} from 'react';
+import {Alert, SafeAreaView, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import FormField from "@/components/FormField";
 import Button from "@/components/Button";
 import {AntDesign} from "@expo/vector-icons";
 import {Link, router} from "expo-router";
 
+
 const SignIn = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const login = async () => {
+         router.push("/(home)/home");
+
+        /*if ( !/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email) ) {
+            Alert.alert("Error", "Invalid Email");
+            return
+        }
+
+        if(!/^(?=.*\S).{8,}$/.test(password)) {
+            Alert.alert("Error", "Password must be at least 8 characters long");
+            return
+        }
+        console.log(email, password);
+
+        setPassword('');
+        setEmail('');*/
+    }
     return (
         <SafeAreaView>
             <ScrollView>
@@ -28,7 +49,7 @@ const SignIn = () => {
                                 <View className="flex items-center gap-2 w-[90vw]">
                                     <FormField
                                         containerStyles="w-full bg-slate-50 h-10 font-medium rounded-lg px-4 py-2"
-                                        multiline={false} placeholder="example@email.com"/>
+                                        multiline={false} placeholder="example@email.com" onTextChange={(text)=>setEmail(text)} value={email}/>
                                 </View>
                             </View>
                             <View className="flex flex-col gap-2 mt-5">
@@ -38,11 +59,11 @@ const SignIn = () => {
                                 <View className="flex items-center gap-2 w-[90vw]">
                                     <FormField secureTextEntry={true}
                                                containerStyles="w-full bg-slate-50 font-medium h-10 rounded-lg px-4 py-2"
-                                               multiline={false} placeholder="**************"/>
+                                               multiline={false} placeholder="**************" onTextChange={(text)=> setEmail(text)} value={password}/>
                                 </View>
                             </View>
                             <View className="mt-10">
-                                <Button title="Continue"  containerStyles="bg-blue-500" onPress={()=> router.replace("/(home)/home")}/>
+                                <Button title="Continue"  containerStyles="bg-blue-500" onPress={()=> login}/>
                             </View>
                             <View className="flex flex-col mt-3 w-full justify-center items-center">
                                 <View>

@@ -1,9 +1,9 @@
 import React from 'react';
 import {TextInput} from "react-native";
 
-const FormField = ({containerStyles,multiline,placeholder,secureTextEntry}:{containerStyles,multiline:boolean, placeholder:string,secureTextEntry?:boolean}) => {
+const FormField = ({containerStyles,multiline,placeholder,secureTextEntry,onTextChange,value}:{value:string,containerStyles:string,multiline:boolean, placeholder:string,secureTextEntry?:boolean,onTextChange:(text: string) => void}) => {
     return (
-        <TextInput secureTextEntry={secureTextEntry} placeholderTextColor="#94a3b8"  className={`${containerStyles}`} multiline={multiline} placeholder={placeholder}/>
+        <TextInput value={value} onChangeText={onTextChange} secureTextEntry={secureTextEntry} placeholderTextColor="#94a3b8"  className={`${containerStyles}`} multiline={multiline} placeholder={placeholder}/>
     );
 };
 

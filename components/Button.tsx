@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, TouchableOpacity} from "react-native";
 
-const Button = ({title, containerStyles, onPress}: { title: string, containerStyles: string }) => {
+const Button = ({title, containerStyles, onPress}: { title: string, containerStyles: string,onPress:any }) => {
     return (
         <TouchableOpacity onPress={onPress} className={`${containerStyles} flex items-center  rounded-lg px-2 py-2`}>
             <Text className="text-xl text-white font-bold tracking-wider">

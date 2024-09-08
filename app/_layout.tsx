@@ -1,14 +1,18 @@
 import React from 'react';
 import {Stack} from "expo-router";
+import {GlobalProvider} from "@/hooks/GlobalProvider";
 
 const _Layout = () => {
     return (
-        <Stack screenOptions={{
-            headerShown: false,
-        }}>
-            <Stack.Screen name="(welcome)"/>
-            <Stack.Screen name="(auth)"/>
-        </Stack>
+        <GlobalProvider>
+            <Stack screenOptions={{
+                headerShown: false,
+            }}>
+                <Stack.Screen name="(welcome)"/>
+                <Stack.Screen name="(auth)"/>
+
+            </Stack>
+        </GlobalProvider>
     );
 };
 

@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {SafeAreaView, ScrollView, Text, View} from "react-native";
 import {StatusBar} from "expo-status-bar";
 
 const Home = () => {
     const [favouritePosts, setFavouritePosts] = React.useState([]);
+    useEffect(() => {
+        // fetch favourite posts from local database
+    });
     return (
         <SafeAreaView>
             <ScrollView>
