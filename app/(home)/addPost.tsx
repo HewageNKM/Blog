@@ -25,6 +25,7 @@ const Home = () => {
 
     const savePost = async () => {}
 
+    // uploadThumbnail function
     const uploadThumbnail = async () => {
        const result = await ImagePicker.launchImageLibraryAsync({
                 allowsEditing: true,
@@ -41,6 +42,8 @@ const Home = () => {
             }
         }
     }
+
+    // selectImage function and set image to the rich text editor
     const selectImage = async () => {
             const result = await ImagePicker.launchImageLibraryAsync({
                 allowsEditing: true,

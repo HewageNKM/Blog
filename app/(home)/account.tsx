@@ -1,10 +1,26 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, View, Text, TouchableOpacity} from "react-native";
+import {SafeAreaView, ScrollView, View, Text, TouchableOpacity, Alert} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import {AntDesign} from "@expo/vector-icons";
+import {router} from "expo-router";
 
 const Home = () => {
     const [user, setUser] = React.useState({name:"Exmple",email:"example@gmail.com"});
+
+    const logout = () => {
+        Alert.alert("Logout","Are you sure you want to logout?",[
+            {
+                text:"No",
+                onPress:()=>{}
+            },
+            {
+                text: "Yes",
+                onPress: () => {
+                    router.replace("/(auth)/signIn");
+                }
+            }
+        ]);
+    }
     return (
         <SafeAreaView>
             <ScrollView>
@@ -33,7 +49,7 @@ const Home = () => {
                     </View>
                     <View className="mt-5 w-full">
                         <View className="pt-2 flex justify-center items-center flex-col gap-2">
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={()=> logout()}>
                                 <Text className="text-xl font-medium text-blue-600">
                                     Logout
                                 </Text>
