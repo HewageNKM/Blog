@@ -128,3 +128,56 @@ export const  categories = [
         name: "Economics"
     },
 ]
+export const posts = [
+    {
+        id: 1,
+        title: "Post 1",
+        category: "Technology",
+        thumbnail: "https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg",
+        date: "2021-10-14",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.",
+        likes: 10,
+        comments: 5,
+    },
+    {
+        id: 2,
+        title: "Post 2",
+        category: "Fashion",
+        thumbnail: "https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg",
+        date: "2021-10-14",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.",
+        likes: 10,
+        comments: 5,
+    },
+    {
+        id: 3,
+        title: "Post 3",
+        category: "Food",
+        thumbnail: "https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg",
+        date: "2021-10-14",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.",
+        likes: 10,
+        comments: 5,
+    },
+    {
+        id: 4,
+        title: "Post 4",
+        category: "Travel",
+        thumbnail: "https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg",
+        date: "2021-10-14",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.",
+        likes: 10,
+        comments: 5,
+    },
+    {
+        id: 5,
+        title: "Post 5",
+        category: "Music",
+        thumbnail: "https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg",
+        date: "2021-10-14",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.",
+        likes: 10,
+        comments: 5,
+    }
+
+]

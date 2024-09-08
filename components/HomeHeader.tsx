@@ -2,7 +2,8 @@ import React from 'react';
 import {Image, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import FormField from "@/components/FormField";
 import {AntDesign} from "@expo/vector-icons";
-import {categories} from "@/constants";
+import {categories, posts} from "@/constants";
+import StoryCard from "@/components/StoryCard";
 
 const HomeHeader = ({setCategory,category}:{setCategory: React.Dispatch<React.SetStateAction<string>>,category:string}) => {
     return (
@@ -22,7 +23,7 @@ const HomeHeader = ({setCategory,category}:{setCategory: React.Dispatch<React.Se
                         Today's Top Stories
                     </Text>
                     <View>
-                        <Image  alt="Today" src=""/>
+                        <StoryCard post={posts[0]}/>
                     </View>
                 </View>
                 <View className="mt-5">
