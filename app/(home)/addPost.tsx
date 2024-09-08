@@ -1,4 +1,4 @@
-import React, {SetStateAction, useRef, useState} from 'react';
+import React, {SetStateAction, useEffect, useRef, useState} from 'react';
 import {
     Image,
     KeyboardAvoidingView,
@@ -15,6 +15,7 @@ import Button from "@/components/Button";
 import * as ImagePicker from 'expo-image-picker';
 import FormField from "@/components/FormField";
 import {AntDesign} from "@expo/vector-icons";
+import {getLibraryPermission} from "@/hooks/permission";
 
 
 const Home = () => {
@@ -24,6 +25,9 @@ const Home = () => {
     const [thumbnail, setThumbnail] = useState(null);
 
     const savePost = async () => {}
+    useEffect(() => {
+        getLibraryPermission();
+    })
 
     // uploadThumbnail function
     const uploadThumbnail = async () => {

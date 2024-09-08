@@ -1,13 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {SafeAreaView, ScrollView, Text, View} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import Button from "@/components/Button";
 import {router} from "expo-router";
+import {getLibraryPermission} from "@/hooks/permission";
 
 const Index = () => {
     const onClick = () => {
         router.replace("/(auth)/signIn");
     }
+
+    useEffect(() => {
+        getLibraryPermission();
+    }, []);
     return (
         <SafeAreaView>
             <ScrollView>
