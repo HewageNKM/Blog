@@ -59,7 +59,7 @@ const SignIn = () => {
                                 <View className="flex items-center gap-2 w-[90vw]">
                                     <FormField secureTextEntry={true}
                                                containerStyles="w-full bg-slate-50 font-medium h-10 rounded-lg px-4 py-2"
-                                               multiline={false} placeholder="**************" onTextChange={(text)=> setEmail(text)} value={password}/>
+                                               multiline={false} placeholder="**************" onTextChange={(text)=> setPassword(text)} value={password}/>
                                 </View>
                             </View>
                             <View className="mt-10">
