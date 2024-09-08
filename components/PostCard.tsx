@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, Image} from "react-native";
 import {AntDesign} from "@expo/vector-icons";
 
-const PostCard = ({post}:{post:object}) => {
+const PostCard = ({post}:{post: { item:Post}}) => {
     return (
         <View className="w-full px-4">
             <View className="mt-5 bg-gray-200 flex flex-row rounded-lg items-center ">

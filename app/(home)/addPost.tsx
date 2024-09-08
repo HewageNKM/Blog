@@ -1,4 +1,4 @@
-import React, {SetStateAction, useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
     Image,
     KeyboardAvoidingView,
@@ -15,7 +15,7 @@ import Button from "@/components/Button";
 import * as ImagePicker from 'expo-image-picker';
 import FormField from "@/components/FormField";
 import {AntDesign} from "@expo/vector-icons";
-import {getLibraryPermission} from "@/hooks/permission";
+import {getLibraryPermission} from "@/constants/permission";
 
 
 const Home = () => {
@@ -24,18 +24,19 @@ const Home = () => {
     const [title, setTitle] = useState('');
     const [thumbnail, setThumbnail] = useState(null);
 
-    const savePost = async () => {}
+    const savePost = async () => {
+    }
     useEffect(() => {
         getLibraryPermission();
     })
 
     // uploadThumbnail function
     const uploadThumbnail = async () => {
-       const result = await ImagePicker.launchImageLibraryAsync({
-                allowsEditing: true,
-                quality: 1,
-                base64: true,
-            });
+        const result = await ImagePicker.launchImageLibraryAsync({
+            allowsEditing: true,
+            quality: 1,
+            base64: true,
+        });
 
         if (!result.canceled) {
             try {
@@ -49,11 +50,11 @@ const Home = () => {
 
     // selectImage function and set image to the rich text editor
     const selectImage = async () => {
-            const result = await ImagePicker.launchImageLibraryAsync({
-                allowsEditing: true,
-                quality: 1,
-                base64: true,
-            });
+        const result = await ImagePicker.launchImageLibraryAsync({
+            allowsEditing: true,
+            quality: 1,
+            base64: true,
+        });
 
         if (!result.canceled) {
             try {
@@ -66,7 +67,7 @@ const Home = () => {
 
     }
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={{flex: 1}}>
             <KeyboardAvoidingView
                 className="flex-1"
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -83,7 +84,8 @@ const Home = () => {
                                 Title
                             </Text>
                             <View>
-                                <FormField containerStyles="bg-slate-200 h-10 px-4 py-2 justify-center rounded-lg" multiline={false} placeholder="sci-fi"/>
+                                <FormField containerStyles="bg-slate-200 h-10 px-4 py-2 justify-center rounded-lg"
+                                           multiline={false} placeholder="sci-fi"/>
                             </View>
                         </View>
                         <View className="w-full">
@@ -91,19 +93,21 @@ const Home = () => {
                                 Thumbnail
                             </Text>
 
-                            {thumbnail &&  (<View className="w-full mt-5 relative">
-                                <TouchableOpacity onPress={()=> setThumbnail(null)} className="absolute z-30 -top-4 right-9 bg-white p-2 rounded-full">
+                            {thumbnail && (<View className="w-full mt-5 relative">
+                                <TouchableOpacity onPress={() => setThumbnail(null)}
+                                                  className="absolute z-30 -top-4 right-9 bg-white p-2 rounded-full">
                                     <AntDesign name={"close"} size={20}/>
                                 </TouchableOpacity>
                                 <Image src={thumbnail} resizeMode={"contain"} className="rounded-lg h-[30vh]"/>
                             </View>)}
-                            <TouchableOpacity onPress={()=> uploadThumbnail()} className="text-lg flex-1 pt-5 justify-center items-center font-semibold">
+                            <TouchableOpacity onPress={() => uploadThumbnail()}
+                                              className="text-lg flex-1 pt-5 justify-center items-center font-semibold">
                                 <AntDesign name={"upload"} size={30}/>
                             </TouchableOpacity>
                         </View>
-                        <View style={{ marginTop: 20 }}>
+                        <View style={{marginTop: 20}}>
                             <RichToolbar
-                                style={{ marginTop: 10 }}
+                                style={{marginTop: 10}}
                                 editor={richText}
                                 onPressAddImage={selectImage}
                                 actions={[
@@ -138,7 +142,7 @@ const Home = () => {
                             />
                         </View>
 
-                        <View style={{ marginTop: 20 }}>
+                        <View style={{marginTop: 20}}>
                             <Button
                                 onPress={savePost}
                                 title="Save Post"
@@ -148,7 +152,7 @@ const Home = () => {
                     </View>
                 </ScrollView>
             </KeyboardAvoidingView>
-            <StatusBar animated={true} style="inverted" />
+            <StatusBar animated={true} style="inverted"/>
         </SafeAreaView>
     );
 };

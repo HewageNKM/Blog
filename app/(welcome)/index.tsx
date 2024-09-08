@@ -3,7 +3,7 @@ import {SafeAreaView, ScrollView, Text, View} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import Button from "@/components/Button";
 import {router} from "expo-router";
-import {getLibraryPermission} from "@/hooks/permission";
+import {getLibraryPermission} from "@/constants/permission";
 
 const Index = () => {
     const onClick = () => {

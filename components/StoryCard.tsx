@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Image, Text} from "react-native";
 
-const StoryCard = ({post}:{post:object}) => {
+const StoryCard = ({post}:{post:Post}) => {
     return (
         <View className="w-full mt-2">
             <View className="relative w-full h-[30vh]">
