@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Alert, SafeAreaView, ScrollView, Text, TouchableOpacity, View} from "react-native";
+import {SafeAreaView, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import FormField from "@/components/FormField";
 import Button from "@/components/Button";
@@ -12,8 +12,7 @@ const SignIn = () => {
     const [password, setPassword] = useState("");
 
     const login = async () => {
-         router.push("/(home)/home");
-
+        router.replace("/(home)/home");
         /*if ( !/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email) ) {
             Alert.alert("Error", "Invalid Email");
             return
@@ -49,7 +48,8 @@ const SignIn = () => {
                                 <View className="flex items-center gap-2 w-[90vw]">
                                     <FormField
                                         containerStyles="w-full bg-slate-50 h-10 font-medium rounded-lg px-4 py-2"
-                                        multiline={false} placeholder="example@email.com" onTextChange={(text)=>setEmail(text)} value={email}/>
+                                        multiline={false} placeholder="example@email.com"
+                                        onTextChange={(text) => setEmail(text)} value={email}/>
                                 </View>
                             </View>
                             <View className="flex flex-col gap-2 mt-5">
@@ -59,11 +59,12 @@ const SignIn = () => {
                                 <View className="flex items-center gap-2 w-[90vw]">
                                     <FormField secureTextEntry={true}
                                                containerStyles="w-full bg-slate-50 font-medium h-10 rounded-lg px-4 py-2"
-                                               multiline={false} placeholder="**************" onTextChange={(text)=> setPassword(text)} value={password}/>
+                                               multiline={false} placeholder="**************"
+                                               onTextChange={(text) => setPassword(text)} value={password}/>
                                 </View>
                             </View>
                             <View className="mt-10">
-                                <Button title="Continue"  containerStyles="bg-blue-500" onPress={()=> login}/>
+                                <Button title="Continue" containerStyles="bg-blue-500" onPress={() => login()}/>
                             </View>
                             <View className="flex flex-col mt-3 w-full justify-center items-center">
                                 <View>
@@ -77,7 +78,7 @@ const SignIn = () => {
                                     </Text>
                                 </View>
                                 <View className="flex  flex-row pt-1 gap-8">
-                                    <TouchableOpacity  className="flex flex-row items-center gap-1">
+                                    <TouchableOpacity className="flex flex-row items-center gap-1">
                                         <AntDesign name="facebook-square" size={30} color="black"/>
                                         <Text className="font-medium text-sm">Facebook</Text>
                                     </TouchableOpacity>

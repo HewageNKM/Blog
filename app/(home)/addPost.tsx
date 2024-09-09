@@ -16,6 +16,8 @@ import * as ImagePicker from 'expo-image-picker';
 import FormField from "@/components/FormField";
 import {AntDesign} from "@expo/vector-icons";
 import {getLibraryPermission} from "@/constants/permission";
+import {Picker} from "@react-native-picker/picker";
+import {categories} from "@/constants";
 
 
 const Home = () => {
@@ -23,12 +25,13 @@ const Home = () => {
     const [content, setContent] = useState('');
     const [title, setTitle] = useState('');
     const [thumbnail, setThumbnail] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState();
 
     const savePost = async () => {
     }
     useEffect(() => {
         getLibraryPermission();
-    })
+    }, [])
 
     // uploadThumbnail function
     const uploadThumbnail = async () => {
@@ -66,6 +69,9 @@ const Home = () => {
         }
 
     }
+    const optimizedByAI = async (param:number) => {
+
+    }
     return (
         <SafeAreaView style={{flex: 1}}>
             <KeyboardAvoidingView
@@ -84,7 +90,7 @@ const Home = () => {
                                 Title
                             </Text>
                             <View>
-                                <FormField containerStyles="bg-slate-200 h-10 px-4 py-2 justify-center rounded-lg"
+                                <FormField value={title} onTextChange={(text:string)=> setTitle(text)} containerStyles="bg-slate-200 h-10 px-4 py-2 justify-center rounded-lg"
                                            multiline={false} placeholder="sci-fi"/>
                             </View>
                         </View>
@@ -131,6 +137,7 @@ const Home = () => {
                                 ]}
                             />
                             <RichEditor
+                                onChange={(text) => setContent(text)}
                                 ref={richText}
                                 initialHeight={400}
                                 style={{
@@ -140,8 +147,43 @@ const Home = () => {
                                     borderRadius: 5,
                                 }}
                             />
+                            <View className="pt-5">
+                                <Text className="text-xl font-semibold">
+                                    AI Tools
+                                </Text>
+                                <View className="flex-row justify-start items-center flex gap-5">
+                                    <TouchableOpacity onPress={()=> optimizedByAI(1)}>
+                                        <Text className="text-lg font-semibold text-blue-500">
+                                            Rewrite
+                                        </Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity onPress={()=> optimizedByAI(2)}>
+                                        <Text className="text-lg font-semibold text-blue-500">
+                                            Summarize
+                                        </Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity onPress={()=> optimizedByAI(3)}>
+                                        <Text className="text-lg font-semibold text-blue-500">
+                                            Grammar Check
+                                        </Text>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
                         </View>
-
+                        <View style={{marginTop: 20}}>
+                            <Text className="text-lg font-semibold">
+                                Category
+                            </Text>
+                            <Picker
+                                selectedValue={selectedCategory}
+                                onValueChange={(itemValue, itemIndex) =>
+                                    setSelectedCategory(itemValue)
+                                }>
+                                {categories.map((category, index) => (
+                                    <Picker.Item key={index} label={category.name.toUpperCase()} value={category.name}/>
+                                ))}
+                            </Picker>
+                        </View>
                         <View style={{marginTop: 20}}>
                             <Button
                                 onPress={savePost}
